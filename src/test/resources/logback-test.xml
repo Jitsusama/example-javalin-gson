@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <!-- Create a console logger with desired formatting -->
+   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+         <pattern>%date{HH:mm:ss.SSS} %level [%thread] %logger %message%n%xEx</pattern>
+      </encoder>
+   </appender>
+
+   <!-- Attach console appender to root logger -->
+   <root level="DEBUG">
+      <appender-ref ref="STDOUT" />
+   </root>
+</configuration>
