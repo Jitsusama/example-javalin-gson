@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.*;
  * Lives to test Javalin 2.0.0-RC1 and Gson 2.8.5 inter-working.
  */
 @SuppressWarnings("WeakerAccess")
-public class JavalinGsonExample {
+public class JavalinGsonExampleTests {
   private final Javalin javalin = Javalin.create();
 
   @BeforeAll
