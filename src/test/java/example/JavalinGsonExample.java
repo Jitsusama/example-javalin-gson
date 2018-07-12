@@ -18,7 +18,8 @@ import static org.hamcrest.Matchers.*;
 /**
  * Lives to test Javalin 2.0.0-RC1 and Gson 2.8.5 inter-working.
  */
-class JavalinGsonExample {
+@SuppressWarnings("WeakerAccess")
+public class JavalinGsonExample {
   private final Javalin javalin = Javalin.create();
 
   @BeforeAll
@@ -53,7 +54,7 @@ class JavalinGsonExample {
    * response.
    */
   @Test
-  void rootGetRequestWithExceptionReturnsErrorDocument() {
+  public void rootGetRequestWithExceptionReturnsErrorDocument() {
     given().get("http://localhost:8888").then()
         .statusCode(500)
         .contentType("application/x.my.custom.error+json")
