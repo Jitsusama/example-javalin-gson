@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -27,12 +28,11 @@ public class JavalinGsonExampleTests {
     RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
   }
 
-  @SuppressWarnings("NullableProblems")
   @BeforeEach
   private void setupJavalinServer() {
     Gson gson = new GsonBuilder().create();
     JavalinJson.setFromJsonMapper(gson::fromJson);
-    JavalinJson.setToJsonMapper(gson::toJson);
+    JavalinJson.setToJsonMapper(src -> gson.toJson(src, Map.class));
 
     javalin.disableStartupBanner().port(8888)
         .get("", context -> { throw new Exception("someMessage"); })
